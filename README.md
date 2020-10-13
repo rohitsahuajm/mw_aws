@@ -61,4 +61,4 @@ ansible-playbook -i non-production master-install-mediawiki.yaml
 2. Check if destination machine does not prompt during package upgrade. In my case grub prompt halted my ansible execution.
 3. Pre-bake your image and provide ami-id in terraform.tfvars
 
-For any questions, please write to me at visharad.dhavle[at].gmail.com
+For any questions, please write to me at rohitsahuajm[at].gmail.com
