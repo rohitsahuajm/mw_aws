@@ -59,7 +59,7 @@ chmod 700 master-setup-script.sh
 ## How to Execute Ansible Playbook independent of Terraform
 
 ```
-ansible-playbook -i non-production master-install-mediawiki.yaml
+ansible-playbook -i non-production master-install-mediawiki.yaml --ask-vault-pass
 ```
 
 
