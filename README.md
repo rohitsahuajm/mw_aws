@@ -45,11 +45,6 @@ terraform destroy
 ansible-playbook -i non-production master-install-mediawiki.yaml
 ```
 
-## Logs
-1. terraform plan [Logs](static/terraform-plan.log)
-2. terraform apply [Logs](static/terraform-apply.log)
-3. terraform destroy [Logs](static/terraform-destroy.log)
-4. Ansible [Logs](static/ansible.log)
 
 ## How to Secure Passwords
 1. Open /etc/ansible/ansible.cfg
