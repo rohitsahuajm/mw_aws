@@ -1,8 +1,24 @@
-# What is this repository for?
+Mediawiki Installation on AWS using Ansible Playbook: 
+========================================================
 
-This repository will help you install [Mediawiki](https://www.mediawiki.org) on AWS in fully automated fashion using Terraforma, AWS cli and Ansible.
 
-Terraform is responsible for provisioning infrastructure on AWS while Ansible helps install Mediawiki.
+What's Covered:
+----------------
+ - Terraform Module that does the following: 
+ 	- 1 VPC
+ 	- 3 Subnets  
+ 	- 1 Keypair 
+ 	- 3 EC2 Instances - 2 Web and 1 DB
+ 	- 1 Elastic Load Balancer
+   
+ - Ansible Playbook that performs the following: 
+    - Dynamically fetches your resources based on the tags you defined in the terraform IaC. 
+    - Performs the Installation of the MySQL Database
+    - Creates the Database and Users and other Validations. 
+    - Encrypts the passwords into a vault. 
+    - Role that installs Apache HTTPD, PHP from third-party repositories (remi, epel)
+    - Configures the webserver
+    - Makes it ready for the Launch on the browser. 
 
 ## Diagrams - Infra
 ![AWS Infra Setup](static/mediawiki.jpeg)
@@ -11,33 +27,31 @@ Terraform is responsible for provisioning infrastructure on AWS while Ansible he
 1. Traffic arrives on load balancer and get routed to web servers in public subnet
 2. Web servers can only make calls to DB server in private subnet
 
-## Useful links
-1. Media Wiki installation steps [link](https://www.mediawiki.org/wiki/Manual:Running_MediaWiki_on_Debian_or_Ubuntu)
-2. Enabling keyless authentication [link](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)
-3. Enabling passwordless sudo [link](https://code-maven.com/enable-ansible-passwordless-sudo)
 
-## How to Execute Terrform Scripts
-
-## Preparing Master Machine
+## Preparing Bastion Machine
 Please refer to file - [master-setup-script.sh](master-setup-script.sh)
-```
-chmod 700 master-setup-script.sh
-./master-setup-script.sh
-```
+```chmod 700 master-setup-script.sh
+./master-setup-script.sh```
 
-### Plan
-```
-terrform plan
-```
+## How to Execute Terrform commands
+1. Clone and switch the directory to the Repository. 
+	
+	```git clone https://github.com/rohitsahuajm/mw_aws.git ```
 
-### Apply
-```
-terraform apply
-```
+2. Navigate to the folder: infra-on-aws-terraform:
 
-### Destroy
-```
-terraform destroy
+	``` cd mw_aws```
+	
+3. Initialize the working directory.:
+
+    ```terraform init -input=false```
+	
+4. Create a plan and save it to the local file tfplan: 
+
+	```terraform plan -out=tfplan -input=false``` 
+	
+5. Apply the plan stored in the file tfplan.
+	```terraform apply -input=false tfplan ``` 
 ```
 
 ## How to Execute Ansible Playbook independent of Terraform

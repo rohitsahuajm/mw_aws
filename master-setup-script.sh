@@ -3,10 +3,8 @@
 # Pre-Setup
 sudo apt-get update 
 sudo apt-get -y upgrade
-//sudo apt -y install python-pip
 sudo apt -y install python3-pip
-//sudo pip install --upgrade pip
-sudo apt -y install unzip
+sudo apt -y install unzip git
 
 # Install Terraform
 curl -O https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip
@@ -21,3 +19,6 @@ sudo pip3 install awscli --upgrade
 sudo apt-add-repository -y ppa:ansible/ansible
 sudo apt-get update
 sudo apt-get -y install ansible
+
+#Clone git repo
+sudo git clone https://github.com/rohitsahuajm/mediawiki_aws.git
