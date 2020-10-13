@@ -22,7 +22,7 @@ resource "aws_instance" "mw_instance_web_a" {
   vpc_security_group_ids = ["${var.web_security_group}"]
   subnet_id = "${var.web_subnet_a}"
 
-  tags{
+  tags={
     Name = "mw_instance_web_a"
     Project = "mediawiki"
   }
@@ -35,7 +35,7 @@ resource "aws_instance" "mw_instance_web_b" {
   vpc_security_group_ids = ["${var.web_security_group}"]
   subnet_id = "${var.web_subnet_b}"
 
-  tags{
+  tags={
     Name = "mw_instance_web_b"
     Project = "mediawiki"
   }
@@ -48,7 +48,7 @@ resource "aws_instance" "mw_instance_db" {
   vpc_security_group_ids = ["${var.db_security_group}"]
   subnet_id = "${var.db_subnet}"
 
-  tags{
+  tags={
     Name = "mw_instance_db"
     Project = "mediawiki"
   }
@@ -112,7 +112,7 @@ EOD
   connection_draining         = true
   connection_draining_timeout = 300
 
-  tags {
+  tags={
     Name = "mw_elb"
     Project = "mediawiki"
   }
