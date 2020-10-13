@@ -1,0 +1,21 @@
+
+[dev-mediawiki-web]
+dev-mediawiki-web-1 ansible_host=3.21.104.47
+dev-mediawiki-web-2 ansible_host=3.138.158.84
+
+[dev-mediawiki-web:vars]
+lb_url=media-wiki-elb-531107885.us-east-2.elb.amazonaws.com
+database_ip=192.168.2.243
+
+[dev-mediawiki-sql]
+dev-mediawiki-sql-1 ansible_host=192.168.2.243
+
+[dev-mediawiki-sql:vars]
+web1=192.168.0.129
+web2=192.168.1.44
+
+[mysql-servers:children]
+dev-mediawiki-sql
+
+[apache-servers:children]
+dev-mediawiki-web
