@@ -6,7 +6,7 @@ data "aws_availability_zones" "data_az" {
 resource "aws_vpc" "mw_vpc" {
   cidr_block = "192.168.0.0/16"
     
-  tags{
+  tags={
       Name = "mediawiki"
       Project = "mediawiki"
   }
@@ -16,7 +16,7 @@ resource "aws_vpc" "mw_vpc" {
 resource "aws_internet_gateway" "mw_igw" {
   vpc_id ="${aws_vpc.mw_vpc.id}"
   
-  tags{
+  tags={
       Name = "mediawiki"
       Project = "mediawiki"
     }
@@ -30,7 +30,7 @@ resource "aws_route_table" "mw_rt_public" {
       gateway_id = "${aws_internet_gateway.mw_igw.id}"
   }
 
-  tags{
+  tags={
       Name = "mediawiki_rt_public"
       Project = "mediawiki"
   }
@@ -39,7 +39,7 @@ resource "aws_route_table" "mw_rt_public" {
 resource "aws_route_table" "mw_rt_private" {
   vpc_id = "${aws_vpc.mw_vpc.id}"
 
-  tags{
+  tags={
       Name = "mediawiki_rt_private"
       Project = "mediawiki"
   }
@@ -52,7 +52,7 @@ resource "aws_subnet" "mw_sub_public_a" {
   cidr_block = "192.168.0.0/24"
   map_public_ip_on_launch = true
   
-  tags{
+  tags={
       Name = "mediawiki_sub_public_a"
       Project = "mediawiki"
   }
@@ -64,7 +64,7 @@ resource "aws_subnet" "mw_sub_public_b" {
   cidr_block = "192.168.1.0/24"
   map_public_ip_on_launch = true
   
-  tags{
+  tags={
       Name = "mediawiki_sub_public_b"
       Project = "mediawiki"
   }
@@ -75,7 +75,7 @@ resource "aws_subnet" "mw_sub_private_a" {
   availability_zone = "${data.aws_availability_zones.data_az.names[0]}"
   cidr_block = "192.168.2.0/24"
   
-  tags{
+  tags={
       Name = "mediawiki_sub_private_a"
       Project = "mediawiki"
   }
@@ -86,7 +86,7 @@ resource "aws_subnet" "mw_sub_private_b" {
   availability_zone = "${data.aws_availability_zones.data_az.names[1]}"
   cidr_block = "192.168.3.0/24"
   
-  tags{
+  tags={
       Name = "mediawiki_private_b"
       Project = "mediawiki"
   }
@@ -120,7 +120,7 @@ resource "aws_security_group" "mw_sg_public" {
   description = "default access to instances over 80 and 22"
   vpc_id = "${aws_vpc.mw_vpc.id}"
 
-  tags{
+  tags={
       Name = "mediawiki_sg_public"
       Project = "mediawiki"
   }
@@ -154,7 +154,7 @@ resource "aws_security_group" "mw_sg_private" {
   description = "default access to instances over 22 and 3306"
   vpc_id = "${aws_vpc.mw_vpc.id}"
 
-  tags{
+  tags={
       Name = "mediawiki_sg_private"
       Project = "mediawiki"
   }
