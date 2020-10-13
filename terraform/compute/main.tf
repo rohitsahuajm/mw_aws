@@ -1,6 +1,6 @@
 provider "aws" {
   region = "us-east-2"
-  profile = "mediawiki"
+  profile = "default"
 }
 
 data "aws_availability_zones" "data_az" {
