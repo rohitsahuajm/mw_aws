@@ -54,9 +54,10 @@ chmod 700 master-setup-script.sh
 	
 5. Apply the plan stored in the file tfplan.
 	```terraform apply -input=false tfplan ``` 
-```
+
 
 ## How to Execute Ansible Playbook independent of Terraform
+
 ```
 ansible-playbook -i non-production master-install-mediawiki.yaml
 ```
