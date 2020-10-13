@@ -1,4 +1,4 @@
-ami                 = "ami-03657b56516ab7912"
+ami                 = "ami-07efac79022b86107"
 key_name            = "media_wiki"
 public_key_path     = "/home/ubuntu/.ssh/media_wiki.pub"
 web_instance_type   = "t2.micro"
