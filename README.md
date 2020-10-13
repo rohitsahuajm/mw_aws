@@ -30,8 +30,10 @@ What's Covered:
 
 ## Preparing Bastion Machine
 Please refer to file - [master-setup-script.sh](master-setup-script.sh)
-```chmod 700 master-setup-script.sh
-./master-setup-script.sh```
+```
+chmod 700 master-setup-script.sh
+./master-setup-script.sh
+```
 
 ## How to Execute Terrform commands
 1. Clone and switch the directory to the Repository. 
