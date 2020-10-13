@@ -3,8 +3,9 @@
 # Pre-Setup
 sudo apt-get update 
 sudo apt-get -y upgrade
-sudo apt -y install python-pip
-sudo pip install --upgrade pip
+//sudo apt -y install python-pip
+sudo apt -y install python3-pip
+//sudo pip install --upgrade pip
 sudo apt -y install unzip
 
 # Install Terraform
@@ -14,7 +15,7 @@ sudo unzip terraform_0.11.13_linux_amd64.zip -d /bin/terraform
 export PATH=$PATH:/bin/terraform
 
 # Install AWS CLI
-sudo pip install awscli --upgrade
+sudo pip3 install awscli --upgrade
 
 # Install Ansible
 sudo apt-add-repository -y ppa:ansible/ansible
