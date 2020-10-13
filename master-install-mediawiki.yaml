@@ -5,7 +5,3 @@
   roles:
     - { role: mediawiki, tags: "mediawiki" }
     
-
-# Extra Vars passed from command line
-  vars_files: 
-    - vault.yml
